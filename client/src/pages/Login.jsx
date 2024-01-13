@@ -26,10 +26,20 @@ const Login = () => {
       setError('');
       try {
          const response = await axios.post(
-            'http://localhost:8080/api/users/login',
+            // 'http://localhost:8080/api/users/login',
+            `${process.env.REACT_APP_BASE_URL}/users/login`,
+
             userData
          );
+
+         if (!response) {
+            setError('Empty response received.');
+            return;
+         }
+
+         // console.log(response);
          const user = await response.data;
+         console.log(user);
          setCurrentUser(user);
          //  if (!user) {
          //     setError('Could not register user. Please try again.');
@@ -63,7 +73,7 @@ const Login = () => {
                   onChange={changeInputHandler}
                />
 
-               <button type="submit" className="btn primary">
+               <button type="submit" className="updateBtn btn primary">
                   Login
                </button>
             </form>

@@ -64,7 +64,6 @@ const loginUser = async (req, res, next) => {
       if (!comparePassword) {
          return next(new HttpError('Invalid credentilas', 422));
       }
-
       const { _id: id, name } = user;
       const token = jwt.sign({ id, name }, process.env.JWT_SECRET, {
          expiresIn: '1d',

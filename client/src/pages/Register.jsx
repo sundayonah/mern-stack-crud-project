@@ -29,7 +29,9 @@ const Register = () => {
          // );
 
          const response = await axios.post(
-            'http://localhost:8080/api/users/register',
+            // 'http://localhost:8080/api/users/register',
+            `${process.env.REACT_APP_BASE_URL}/users/register`,
+
             userData
          );
          const newUser = await response.data;
@@ -76,7 +78,7 @@ const Register = () => {
                   value={userData.password2}
                   onChange={changeInputHandler}
                />
-               <button type="submit" className="btn primary">
+               <button type="submit" className="updateBtn btn primary">
                   {' '}
                   Register
                </button>
