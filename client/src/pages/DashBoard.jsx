@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { DUMMY_POSTS } from '../data';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 import axios from 'axios';
