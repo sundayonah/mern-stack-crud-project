@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { DUMMY_POSTS } from '../data';
 import axios from 'axios';
 import PostItem from './PostItem';
 import Loading from './Loading';
@@ -23,6 +22,23 @@ const Posts = () => {
       };
       fetchPosts();
    }, []);
+
+   // useEffect(() => {
+   //    const fetchPosts = async () => {
+   //       //    setIsLoading(true);
+   //       try {
+   //          const response = await axios.get(
+   //             'https://mern-stack-server-side.vercel.app/api/posts'
+   //          );
+   //          console.log(response);
+   //          //   setPosts(response?.data);
+   //       } catch (err) {
+   //          console.log(err);
+   //       }
+   //       //    setIsLoading(false);
+   //    };
+   //    fetchPosts();
+   // }, []);
 
    if (isLoading) {
       return <Loading />;
