@@ -12,8 +12,10 @@ const Posts = () => {
          setIsLoading(true);
          try {
             const response = await axios.get(
-               `${process.env.REACT_APP_BASE_URL}/posts`
+               // `${process.env.REACT_APP_BASE_URL}/posts`
+               `http://localhost:9000/api/posts`
             );
+            console.log(response);
             setPosts(response?.data);
          } catch (err) {
             console.log(err);
@@ -30,7 +32,6 @@ const Posts = () => {
    //          const response = await axios.get(
    //             'https://mern-stack-server-side.vercel.app/api/posts'
    //          );
-   //          console.log(response);
    //          //   setPosts(response?.data);
    //       } catch (err) {
    //          console.log(err);
